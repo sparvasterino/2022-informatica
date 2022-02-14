@@ -20,15 +20,15 @@ class User extends \Core\Model
     public static function getAll()
     {
         $db = static::getDB();
-        $stmt = $db->query('SELECT user_id, name FROM users');
+        $stmt = $db->query('SELECT id_utente, nome FROM utenti');
         $result = array();
 
         if ($stmt->num_rows > 0) {
             // output data of each row
             while($row = $stmt->fetch_assoc()) {
                 $obj = [
-                    "user_id" => $row["user_id"],
-                    "name" => $row["name"],
+                    "user_id" => $row["id_utente"],
+                    "name" => $row["nome"],
                 ];
                 array_push($result,$obj);
             }
